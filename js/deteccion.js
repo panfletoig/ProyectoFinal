@@ -1,30 +1,42 @@
 const axios = require('axios');
 
-let parametros = [];
-let respuestaInfo;
-let arreglo = [];
-let oracion = "";
+let parametros = []; //Parametros para las diferentes peticiones
+let respuestaInfo;   //Regresa la respuesta de la primera petición
+let arreglo = [];    //Los separa dejando un arreglo de 1dato por 1posicion
+let oracion = "";    //Las palabras se guardan en una oracion
+let header = [];
 
-//colocamos el endpoint
-let direccion = "https://serviciovisionnorte.cognitiveservices.azure.com";
+//colocamos los endpoints
+let direccionVision = "https://serviciovisionnorte.cognitiveservices.azure.com";
+let direccionTraduccion = "https://api.cognitive.microsofttranslator.com/"
+
+//Parametros
 parametros[0]="/vision/v3.2/ocr?language=es";
+parametros[1]="detect?api-version=3.0";
+
 
 //colocamos el url y headers
 let url = {url:"https://ellapizrojo.files.wordpress.com/2014/12/01.jpg"};
-let header = {
+header[0] = {
 "Ocp-Apim-Subscription-Key":"9f8839e9bd4e446c8d1bfad49bd6db72",
 "Content-Type":"application/json"};
+header[1]={
+    "Ocp-Apim-Subscription-Key":"58f9f4075c9c46bca61a78cfc71a45b6",
+    "Ocp-Apim-Subscription-Region":"southcentralus",
+    "Content-Type":"application/json"
+};
 
 //une el endpoint con los parametros
-let vision = direccion+parametros[0];
+let vision = direccionVision+parametros[0];
+let deteccion = direccionTraduccion+parametros[1];
 
-//peticion que transforma la imagen a texto
+//peticion post que transforma la imagen a texto
 function textvision(callback)
 {
     axios.post(vision,url,
         {
           headers:
-            header
+            header[0]
         })
         .then(respuesta => {
             //busca los texts que son las palabras
@@ -44,12 +56,25 @@ function textvision(callback)
         })
 }
 
+function deteccionT(oracion, callback)
+{
+    axios.post(deteccion, oracion,{
+        headers: header[1]
+    })
+    .then(respuesta=>{
+        callback(respuesta.data[0].language);
+    })
+    .catch(error=>{
+        console.log(error);
+    })
+}
+
 //llamamos a la peticion de text vision
 textvision(respuesta=>{
-    let guarda = []; 
-    let contador = 0;
+    let guarda = [];  //Guarda palabra por palabra
+    let contador = 0; //Para ir actualizando el arreglo guarda
     
-    //esto separa arreglos
+    //va guardando 1 arreglo por cada lugar
     for (let i=0;i< respuesta.length;i++) 
     {
         arreglo.push(respuesta[i].words);
@@ -60,17 +85,22 @@ textvision(respuesta=>{
     {
         for(let a=0;a<arreglo[i].length; a++)
         {
-            guarda[contador] = arreglo[i][a].text
+            guarda[contador] = arreglo[i][a].text;
             contador++;
         }
     }
 
-    //forma una oracion
+    //concatena las palabras de guarda en una oracion
     for(let i=0; i<guarda.length;i++)
     {
         oracion = oracion.concat(" "+guarda[i]);
     }
-    oracion = oracion.trimStart();
 
-    console.log(oracion);
-})
+    oracion = oracion.trimStart(); //corta el primer espacio
+
+    oracion = [{"Text":oracion}]
+
+    deteccionT(oracion, datos=>{
+        console.log(datos)
+    })
+});
