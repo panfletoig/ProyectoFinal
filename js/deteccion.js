@@ -1,4 +1,5 @@
 const axios = require('axios');
+const prompt = require('prompt-sync')();
 
 let parametros = []; //Parametros para las diferentes peticiones
 let respuestaInfo;   //Regresa la respuesta de la primera petición
@@ -6,20 +7,24 @@ let arreglo = [];    //Los separa dejando un arreglo de 1dato por 1posicion
 let oracion = "";    //Las palabras se guardan en una oracion
 let header = [];     //Guarda los diferentes headers
 
+let idioma = prompt("=> ")
+
 //colocamos los endpoints
 let direccionVision = "https://tpc.cognitiveservices.azure.com/";
 let direccionTraduccion = "https://api.cognitive.microsofttranslator.com/"
 
 //Parametros
-parametros[0]="/vision/v3.2/ocr?language=es";
+parametros[0]="vision/v3.2/ocr?language=es";
 parametros[1]="detect?api-version=3.0";
+parametros[2]="translate?api-version=3.0&from=";
 
 
 //colocamos el url y headers
-let url = {url:"https://ellapizrojo.files.wordpress.com/2014/12/01.jpg"};
+let url = {url:"https://i.postimg.cc/XJr1RzJX/1.jpg"};
 header[0] = {
 "Ocp-Apim-Subscription-Key":"945a6c1958534f69bdbfe112459fd8b1",
-"Content-Type":"application/json"};
+"Content-Type":"application/json"
+};
 header[1]={
     "Ocp-Apim-Subscription-Key":"7fb8b8b2ea394ca5913d87cd43f1059b",
     "Ocp-Apim-Subscription-Region":"southcentralus",
@@ -29,6 +34,7 @@ header[1]={
 //une el endpoint con los parametros
 let vision = direccionVision+parametros[0];
 let deteccion = direccionTraduccion+parametros[1];
+let traduccion = direccionTraduccion+parametros[2];
 
 //peticion post que transforma la imagen a texto
 function textvision(callback)
@@ -101,7 +107,26 @@ textvision(respuesta=>{
 
     oracion = [{"Text":oracion}];   
 
-    deteccionT(oracion, datos=>{
-        console.log(datos);
+    //pericion deteccion de idioma
+    deteccionT(oracion, traduccir=>{
+        //traduccion a idima
+        translate(traduccir, procceso =>{
+            console.log(procceso);
+        })
     })
 });
+
+function translate(traduccir, callback)
+{
+    traduccion = traduccion+traduccir+"&to="+idioma;//concatenamos la dirreccion
+
+    axios.post(traduccion,oracion, {
+        headers:header[1]
+    })
+    .then(respuesta=>{
+        callback(respuesta.data[0].translations[0].text);
+    })
+    .catch(error => {
+        console.log(error.data)
+    })
+}
