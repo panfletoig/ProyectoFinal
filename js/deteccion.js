@@ -4,10 +4,10 @@ let parametros = []; //Parametros para las diferentes peticiones
 let respuestaInfo;   //Regresa la respuesta de la primera petición
 let arreglo = [];    //Los separa dejando un arreglo de 1dato por 1posicion
 let oracion = "";    //Las palabras se guardan en una oracion
-let header = [];
+let header = [];     //Guarda los diferentes headers
 
 //colocamos los endpoints
-let direccionVision = "https://serviciovisionnorte.cognitiveservices.azure.com";
+let direccionVision = "https://tpc.cognitiveservices.azure.com/";
 let direccionTraduccion = "https://api.cognitive.microsofttranslator.com/"
 
 //Parametros
@@ -18,10 +18,10 @@ parametros[1]="detect?api-version=3.0";
 //colocamos el url y headers
 let url = {url:"https://ellapizrojo.files.wordpress.com/2014/12/01.jpg"};
 header[0] = {
-"Ocp-Apim-Subscription-Key":"9f8839e9bd4e446c8d1bfad49bd6db72",
+"Ocp-Apim-Subscription-Key":"945a6c1958534f69bdbfe112459fd8b1",
 "Content-Type":"application/json"};
 header[1]={
-    "Ocp-Apim-Subscription-Key":"58f9f4075c9c46bca61a78cfc71a45b6",
+    "Ocp-Apim-Subscription-Key":"7fb8b8b2ea394ca5913d87cd43f1059b",
     "Ocp-Apim-Subscription-Region":"southcentralus",
     "Content-Type":"application/json"
 };
@@ -56,6 +56,7 @@ function textvision(callback)
         })
 }
 
+//Detecta el idioma
 function deteccionT(oracion, callback)
 {
     axios.post(deteccion, oracion,{
@@ -98,9 +99,9 @@ textvision(respuesta=>{
 
     oracion = oracion.trimStart(); //corta el primer espacio
 
-    oracion = [{"Text":oracion}]
+    oracion = [{"Text":oracion}];   
 
     deteccionT(oracion, datos=>{
-        console.log(datos)
+        console.log(datos);
     })
 });
