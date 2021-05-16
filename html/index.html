@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Azure Traduccion.img</title>
+</head>
+<body>
+    <header><h1>Traducción</h1></header>
+    <main>
+        <section>
+            <p>
+                Toma una imagen, <br>
+                Yo voy a traducir el texto por ti
+            </p>
+        </section>
+        <form action="../php/img.php" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="imagen">Imagen</label>
+                <input type="file" name="imagen" id="imagen"><br>
+                <input type="submit" value="Guardar">
+            </div>
+        </form>
+    </main>
+</body>
+</html>
