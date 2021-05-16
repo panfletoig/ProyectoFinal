@@ -1,11 +1,23 @@
 <?php
-    require 'conexion.php';
-    $imagen = "";
-    if(isset($_FILES["imagen"])){
-        $file = $_FILES["imagen"];
-        $nombre = $file["name"];
-        $tipo = $file["type"];
-        $ruta_provisional = $file["tmp`_name"];
-        $size = $file["size"]
-        $dimensiones = getimagesize($ruta_provisional)
+    $nombre=$_FILES['archivo']['name'];
+    $guardado=$_FILES['archivo']['tmp_name'];
+
+    if(!file_exists('img')){
+        mkdir('img',0777,true);
+        if(file_exists('img')){
+            if(move_uploaded_file($guardado, "img".$nombre)){
+                echo "Archivo Guardado con exito";
+            }else{
+                echo "Archivo No se guardo :(";
+            }
+        }
     }
+    else
+    {
+        if(move_uploaded_file($guardado, "img".$nombre)){
+            echo "Archivo Guardado con exito";
+        }else{
+            echo "Archivo No se guardo :(";
+        }
+    }
+?>
