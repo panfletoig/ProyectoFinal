@@ -1,5 +1,4 @@
 <?php
-    print_r($_FILES);
     $nombre=$_FILES['imagen']['name'];
     $guardado=$_FILES['imagen']['tmp_name'];
     $size=$_FILES['imagen']['size'];
@@ -20,9 +19,9 @@
                 }
             }else{
                 if(move_uploaded_file($guardado, "../img/".$nombre)){
-                    echo "Archivo Guardado con exito";
+                    echo "Archivo se subio con exito";
                 }else{
-                    echo "Archivo No se guardo :(";
+                    echo "Archivo no se guardo :( mision fallada con exito";
                 }
             }
         }
@@ -30,3 +29,21 @@
         echo "Error: Archivo no compatible :(";
     }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prosesamiento</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <header>
+        <h1>Espera . . .</h1>
+    </header>
+    <script>
+        var direccionUrl = '<?php echo $nombre;?>';
+    </script>
+    <script src="../js/detect.js"></script>
+</body>
+</html>
