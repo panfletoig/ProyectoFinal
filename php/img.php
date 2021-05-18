@@ -19,7 +19,7 @@
                 }
             }else{
                 if(move_uploaded_file($guardado, "../img/".$nombre)){
-                    echo "Archivo se subio con exito";
+                    echo "Archivo subio con exito :)";
                 }else{
                     echo "Archivo no se guardo :( mision fallada con exito";
                 }
@@ -42,7 +42,7 @@
         <h1>Espera . . .</h1>
     </header>
     <script>
-        var direccionUrl = '<?php echo $nombre;?>';
+        var dUrl = '<?php echo $nombre;?>';
     </script>
     <script src="../js/detect.js"></script>
 </body>

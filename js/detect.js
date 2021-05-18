@@ -1,6 +1,8 @@
-window.onload = iniciar;
+window.onload = iniciar();
+
 
 function iniciar(){
+    alert(dUrl);
 
     let parametros = []; //Parametros para las diferentes peticiones
     let respuestaInfo;   //Regresa la respuesta de la primera petición
@@ -20,7 +22,7 @@ function iniciar(){
     
     
     //colocamos el url y headers
-    let url = {url: direccionUrl};
+    let url = {url: "https://"+dUrl};
     header[0] = {
     "Ocp-Apim-Subscription-Key":"945a6c1958534f69bdbfe112459fd8b1",
     "Content-Type":"application/json"
