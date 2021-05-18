@@ -1,6 +1,5 @@
 window.onload = iniciar();
 
-
 function iniciar(){
     alert(dUrl);
 
@@ -22,7 +21,7 @@ function iniciar(){
     
     
     //colocamos el url y headers
-    let url = {url: "https://"+dUrl};
+    let url = {url: "https://image.slidesharecdn.com/textoeningles-160902150131/95/texto-en-ingles-1-638.jpg"};
     header[0] = {
     "Ocp-Apim-Subscription-Key":"945a6c1958534f69bdbfe112459fd8b1",
     "Content-Type":"application/json"

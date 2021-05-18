@@ -33,17 +33,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>Prosesamiento</title>
 </head>
 <body>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <header>
         <h1>Espera . . .</h1>
     </header>
     <script>
         var dUrl = '<?php echo $nombre;?>';
-    </script>
+        </script>
+    <script src="../librerias/axios.min.js"></script>
     <script src="../js/detect.js"></script>
 </body>
 </html>
