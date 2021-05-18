@@ -20,9 +20,6 @@
                 }
             }else{
                 if(move_uploaded_file($guardado, "../img/".$nombre)){
-                    echo "Archivo subio con exito :)";
-                }else{
-                    echo "Archivo no se guardo :( mision fallada con exito";
                 }
             }
         }
@@ -39,13 +36,19 @@
 </head>
 <body>
     <header>
-        <h1>UwU</h1>
+        <h1>Espera . . .</h1>
     </header>
-    <script>
-        var dUrl = '<?php echo $nombre;?>';
-        var Nidioma = '<?php echo $idiomas;?>';
-        </script>
-    <script src="../librerias/axios.min.js"></script>
-    <script src="../js/detect.js"></script>
+    <main>
+        <section>
+            <script>
+                var dUrl = '<?php echo $nombre;?>';
+                var Nidioma = '<?php echo $idiomas;?>';
+            </script>
+            <script src="../librerias/axios.min.js"></script>
+            <script src="../js/detect.js"></script>
+            <div id="1">
+            </div>
+        </section>
+    </main>
 </body>
 </html>

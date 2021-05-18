@@ -1,8 +1,6 @@
 window.onload = iniciar();
 
 function iniciar(){
-    alert(Nidioma);
-
     let parametros = []; //Parametros para las diferentes peticiones
     let respuestaInfo;   //Regresa la respuesta de la primera petición
     let arreglo = [];    //Los separa dejando un arreglo de 1dato por 1posicion
@@ -35,7 +33,6 @@ function iniciar(){
         89:"cy", 90:"yua"
     };
     let idiomaElegido = idioma[Nidioma]
-    alert(idiomaElegido)
 
     //colocamos los endpoints
     let direccionVision = "https://tpc.cognitiveservices.azure.com/";
@@ -48,7 +45,9 @@ function iniciar(){
     
     
     //colocamos el url y headers
-    let url = {url: "http://imagetranslate.epizy.com/img/"+dUrl};
+    //let url = {url: "http://imagetranslate.epizy.com/img/"+dUrl};
+    let url = {url: "https://image.slidesharecdn.com/textoeningles-160902150131/95/texto-en-ingles-1-638.jpg"};
+    
     header[0] = {
     "Ocp-Apim-Subscription-Key":"945a6c1958534f69bdbfe112459fd8b1",
     "Content-Type":"application/json"
@@ -65,6 +64,7 @@ function iniciar(){
     let traduccion = direccionTraduccion+parametros[2];
     
     //peticion post que transforma la imagen a texto
+    
     function textvision(callback)
     {
         axios.post(vision,url,
@@ -87,7 +87,8 @@ function iniciar(){
             })
             .catch(error => {
                 console.log(error)
-            })
+            }
+        )
     }
     
     //Detecta el idioma
@@ -139,14 +140,13 @@ function iniciar(){
         deteccionT(oracion, traduccir=>{
             //traduccion a idima
             translate(traduccir, procceso =>{
-                console.log(procceso);
+                document.getElementById('1').innerHTML=procceso;
             })
         })
     });
     
     function translate(traduccir, callback)
     {
-        idiomaElegido = document.getElementById("");
         traduccion = traduccion+traduccir+"&to="+idiomaElegido;//concatenamos la dirreccion
     
         axios.post(traduccion,oracion, {
