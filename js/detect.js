@@ -9,7 +9,34 @@ function iniciar(){
     let oracion = "";    //Las palabras se guardan en una oracion
     let header = [];     //Guarda los diferentes headers
     
-    let idioma = "es";
+    let idioma = {
+        afrikáans:"af", Albanés:"sq", Amárico:"am", Árabe:"ar",
+        Armenio:"hy", Asamés:"as", Azerbaiyano:"az", Bengalí:"bn",
+        "Bosnio (latino)":"bs", Búlgaro:"bg", "Cantonés (tradicional)":"yue", Catalán:"ca",
+        "Chino simplificado":"zh-Hans", "Chino tradicional":"zh-Hant",
+        Croata:"hr", Checo:"cs", Danés:"da", Dari:"prs",
+        Neerlandés:"nl", Inglés:"en", Estonio:"et", Fiyiano:"fj",
+        Filipino:"fil", Finés:"fi", Francés:"fr", "Francés (Canadá)":"fr-ca",
+        Alemán:"de", Griego:"el", Gujarati:"gu", "Criollo haitiano":"ht",
+        Hebreo:"he", Hindi:"hi", "Hmong Daw":"mww", Húngaro:"hu",
+        Islandés:"is", Indonesio:"id", Inuktitut:"iu", Irlandés:"ga",
+        Italiano:"it", Japonés:"ja", Canarés:"kn", Kazajo:"kk",
+        Jemer:"km", Klingon:"tlh-Latn", "Klingon (plqaD)":"tlh-Piqd", "Maya Yucateco":"yua",
+        Coreano:"ko", "Kurdo (central)":"ku", "Kurdo (norte)":"kmr", Lao:"lo",
+        Letón:"lv", Lituano:"lt", Malgache:"mg", Malayo:"ms",
+        Malayalam:"ml", Maltés:"mt", Maori:"mi", Maratí:"mr",
+        Myanmar:"my", Nepalí:"ne", Noruego:"nb", Odia:"or",
+        Pastún:"ps", Persa:"fa", Polaco:"pl", "Portugués (Brasil)":"pt",
+        "Portugués (Portugal)":"pt-pt", Punjabi:"pa", "Otomí Querétaro":"otq", Rumano:"ro",
+        Ruso:"ru", Samoano:"sm", "Serbio (cirílico)":"sr-Cyrl", "Serbio (latino)":"sr-Latn",
+        Eslovaco:"sk", Esloveno:"sl", Español:"es", Swahili:"sw",
+        Sueco:"sv", Tahitiano:"ty", Tamil:"ta", Telugu:"te",
+        Tailandés:"th", Tigriña:"ti", Tongano:"to", Turco:"tr",
+        Ucraniano:"uk", Urdu:"ur", Vietnamita:"vi", Galés:"cy"
+    };
+
+    let idiomaElegido;
+
     //colocamos los endpoints
     let direccionVision = "https://tpc.cognitiveservices.azure.com/";
     let direccionTraduccion = "https://api.cognitive.microsofttranslator.com/"
@@ -21,7 +48,7 @@ function iniciar(){
     
     
     //colocamos el url y headers
-    let url = {url: "https://image.slidesharecdn.com/textoeningles-160902150131/95/texto-en-ingles-1-638.jpg"};
+    let url = {url: "http://imagetranslate.epizy.com/img/"+dUrl};
     header[0] = {
     "Ocp-Apim-Subscription-Key":"945a6c1958534f69bdbfe112459fd8b1",
     "Content-Type":"application/json"
@@ -119,7 +146,7 @@ function iniciar(){
     
     function translate(traduccir, callback)
     {
-        traduccion = traduccion+traduccir+"&to="+idioma;//concatenamos la dirreccion
+        traduccion = traduccion+traduccir+"&to="+idiomaElegido;//concatenamos la dirreccion
     
         axios.post(traduccion,oracion, {
             headers:header[1]
