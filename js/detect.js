@@ -1,41 +1,41 @@
 window.onload = iniciar();
 
 function iniciar(){
-    alert(dUrl);
+    alert(Nidioma);
 
     let parametros = []; //Parametros para las diferentes peticiones
     let respuestaInfo;   //Regresa la respuesta de la primera petición
     let arreglo = [];    //Los separa dejando un arreglo de 1dato por 1posicion
     let oracion = "";    //Las palabras se guardan en una oracion
     let header = [];     //Guarda los diferentes headers
-    
-    let idioma = {
-        afrikáans:"af", Albanés:"sq", Amárico:"am", Árabe:"ar",
-        Armenio:"hy", Asamés:"as", Azerbaiyano:"az", Bengalí:"bn",
-        "Bosnio (latino)":"bs", Búlgaro:"bg", "Cantonés (tradicional)":"yue", Catalán:"ca",
-        "Chino simplificado":"zh-Hans", "Chino tradicional":"zh-Hant",
-        Croata:"hr", Checo:"cs", Danés:"da", Dari:"prs",
-        Neerlandés:"nl", Inglés:"en", Estonio:"et", Fiyiano:"fj",
-        Filipino:"fil", Finés:"fi", Francés:"fr", "Francés (Canadá)":"fr-ca",
-        Alemán:"de", Griego:"el", Gujarati:"gu", "Criollo haitiano":"ht",
-        Hebreo:"he", Hindi:"hi", "Hmong Daw":"mww", Húngaro:"hu",
-        Islandés:"is", Indonesio:"id", Inuktitut:"iu", Irlandés:"ga",
-        Italiano:"it", Japonés:"ja", Canarés:"kn", Kazajo:"kk",
-        Jemer:"km", Klingon:"tlh-Latn", "Klingon (plqaD)":"tlh-Piqd", "Maya Yucateco":"yua",
-        Coreano:"ko", "Kurdo (central)":"ku", "Kurdo (norte)":"kmr", Lao:"lo",
-        Letón:"lv", Lituano:"lt", Malgache:"mg", Malayo:"ms",
-        Malayalam:"ml", Maltés:"mt", Maori:"mi", Maratí:"mr",
-        Myanmar:"my", Nepalí:"ne", Noruego:"nb", Odia:"or",
-        Pastún:"ps", Persa:"fa", Polaco:"pl", "Portugués (Brasil)":"pt",
-        "Portugués (Portugal)":"pt-pt", Punjabi:"pa", "Otomí Querétaro":"otq", Rumano:"ro",
-        Ruso:"ru", Samoano:"sm", "Serbio (cirílico)":"sr-Cyrl", "Serbio (latino)":"sr-Latn",
-        Eslovaco:"sk", Esloveno:"sl", Español:"es", Swahili:"sw",
-        Sueco:"sv", Tahitiano:"ty", Tamil:"ta", Telugu:"te",
-        Tailandés:"th", Tigriña:"ti", Tongano:"to", Turco:"tr",
-        Ucraniano:"uk", Urdu:"ur", Vietnamita:"vi", Galés:"cy"
-    };
 
-    let idiomaElegido;
+    let idioma = {
+        1:"af", 2:"sq", 3:"am", 4:"ar",
+        5:"hy", 6:"as", 7:"az", 8:"bn",
+        9:"bs", 10:"bg", 11:"yue", 12:"ca",
+        13:"zh-Hans", 14:"zh-Hant", 15:"hr", 16:"cs", 
+        17:"da", 18:"prs", 19:"nl", 20:"en", 
+        21:"et", 22:"fj", 23:"fil", 24:"fi", 
+        25:"fr", 26:"fr-ca", 27:"de", 28:"el",
+        29:"gu", 30:"ht", 31:"he", 32:"hi", 
+        33:"mww", 34:"hu", 35:"is", 36:"id", 
+        37:"iu", 38:"ga", 39:"it", 40:"ja", 
+        41:"kn", 42:"kk", 43:"km", 44:"tlh-Latn", 
+        45:"tlh-Piqd", 46:"ko", 47:"ku", 48:"kmr", 
+        49:"lo", 50:"lv", 51:"lt", 52:"mg", 
+        53:"ms", 54:"ml", 55:"mt", 56:"mi", 
+        57:"mr", 58:"my", 59:"ne", 60:"nb", 
+        61:"or", 62:"ps", 63:"fa", 64:"pl", 
+        65:"pt", 66:"pt-pt", 67:"pa", 68:"otq", 
+        69:"ro", 70:"ru", 71:"sm", 72:"sr-Cyrl", 
+        73:"sr-Latn", 74:"sk", 75:"sl", 76:"es",
+        77:"sw", 78:"sv", 79:"ty", 80:"ta", 
+        81:"te", 82:"th", 83:"ti", 84:"to", 
+        85:"tr", 86:"uk", 87:"ur", 88:"vi", 
+        89:"cy", 90:"yua"
+    };
+    let idiomaElegido = idioma[Nidioma]
+    alert(idiomaElegido)
 
     //colocamos los endpoints
     let direccionVision = "https://tpc.cognitiveservices.azure.com/";
@@ -146,6 +146,7 @@ function iniciar(){
     
     function translate(traduccir, callback)
     {
+        idiomaElegido = document.getElementById("");
         traduccion = traduccion+traduccir+"&to="+idiomaElegido;//concatenamos la dirreccion
     
         axios.post(traduccion,oracion, {

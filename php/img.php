@@ -1,4 +1,5 @@
 <?php
+    $idiomas=$_REQUEST["idioma"];
     $nombre=$_FILES['imagen']['name'];
     $guardado=$_FILES['imagen']['tmp_name'];
     $size=$_FILES['imagen']['size'];
@@ -38,10 +39,11 @@
 </head>
 <body>
     <header>
-        <h1>Espera . . .</h1>
+        <h1>UwU</h1>
     </header>
     <script>
         var dUrl = '<?php echo $nombre;?>';
+        var Nidioma = '<?php echo $idiomas;?>';
         </script>
     <script src="../librerias/axios.min.js"></script>
     <script src="../js/detect.js"></script>
