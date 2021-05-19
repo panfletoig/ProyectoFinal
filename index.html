@@ -13,6 +13,17 @@
                 Yo voy a traducir el texto por ti
             </p>
         </section>
+        
+        <section>
+            <div>
+                <select name="listaDeDispositivos" id="listaDeDispositivos"></select>
+                <button id="boton">Tomar foto</button>
+                <p id="estado"></p>
+            </div>
+            <video muted="muted" id="video"></video>
+            <canvas id="canvas" style="display: none;"></canvas>
+        </section>
+        
         <form action="php/img.php" method="POST" enctype="multipart/form-data">
             <div>
                 <label for="imagen">Imagen</label>
@@ -119,4 +130,5 @@
         <script src="js/detect.js"></script>
     </main>
 </body>
+<script src="js/camara.js"></script>
 </html>
