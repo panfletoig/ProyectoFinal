@@ -1,0 +1,31 @@
+@import url(https://fonts.googleapis.com/css?family=KoHo:200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+header h1{
+    font-family: "KoHo";
+    font-size: 4vw;
+}
+#instru{
+    font-family: Rubik;
+    font-size: 2.5vw;
+}
+#foto select{
+    font-family: Rubik;
+    font-size: 2vw;
+}
+#foto button{
+    font-family: Rubik;
+    font-size: 2vw;
+}
+#upload{
+    font-family: Rubik;
+    font-size: 2vw;
+}
+form div{
+    font-family: Rubik;
+    font-size: 2vw;
+}
+#imagen, #idioma{
+    font-family: Rubik;
+    font-size: 1.8vw;
+}

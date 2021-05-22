@@ -1,0 +1,65 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+html,body{
+    background: #ededed;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+header {
+    width: 100%;
+    text-align: center;
+}
+header h1{
+    background: rgb(12, 14, 44);
+    color: #ededed;
+    text-align: center;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#instru{
+    background-color: black;
+    color: #ededed;
+    text-align: center;
+    margin-top: 0.5em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#foto{
+    margin-top: 0.5em;
+    text-align: center;
+}
+#video{
+    padding-top: 0.5em;
+    width: 75%;
+}
+#upload{
+    margin-top: 0.5em;
+    text-align: center;
+}
+form{
+    margin-top: 0.5em;
+    text-align: center;
+}
+#tabla{
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 5vw 0;
+}
+#tabla a{
+    width: 1vw;
+}
+footer{
+    margin-top: 1em;
+    text-align: center;
+    bottom: 0;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    flex: 1;
+    width: 100%;
+    background-color: rgb(12, 14, 44);
+}

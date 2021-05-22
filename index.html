@@ -2,28 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Azure Traduccion.img</title>
+    <title>Azure Translate.img</title>
+    <link rel="icon" href="https://images.emojiterra.com/google/android-11/512px/1f9e0.png">
+    <link rel="stylesheet" href="css/fuentes.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-    <header><h1>Traducción</h1></header>
+    <header>
+        <h1>Image Translate</h1>
+    </header>
     <main>
         <section>
-            <p>
-                Toma una imagen, <br>
-                Yo voy a traducir el texto por ti
+            <p id="instru">
+                Toma una foto, <br>
+                La traducire por ti :)
             </p>
         </section>
-        
-        <section>
-            <div>
+               
+        <section style="text-align: center;">
+            <div id="foto">
                 <select name="listaDeDispositivos" id="listaDeDispositivos"></select>
-                <button id="boton">Tomar foto</button>
+                <button id="boton">Toma una foto</button>
                 <p id="estado"></p>
             </div>
             <video muted="muted" id="video"></video>
             <canvas id="canvas" style="display: none;"></canvas>
         </section>
         
+        <div id="upload">
+            <p>O sube una foto</p>
+        </div>
+
         <form action="php/img.php" method="POST" enctype="multipart/form-data">
             <div>
                 <label for="imagen">Imagen</label>
@@ -123,12 +132,25 @@
                         <option value="90">Maya Yucateco</option>
                     </optgroup> 
                  </select>
-                <button>Subir archivo</button>
+                <button id="imagen">Subir</button>
             </div>
         </form>
+
+        <script src="./js/camara.js"></script>
         <script src="librerias/axios.min.js"></script>
         <script src="js/detect.js"></script>
     </main>
+    <footer>
+        <table id="tabla">
+            <tr>
+                <td>
+                    <a href="https://www.gogetssl.com" rel="nofollow" title="GoGetSSL Site Seal Logo">
+                    <div id="gogetssl-animated-seal" style="width:20vw; height:58px;"></div>
+                    </a>
+                    <script src="https://gogetssl-cdn.s3.eu-central-1.amazonaws.com/site-seals/gogetssl-seal.js"></script>
+                </td>
+            </tr>
+        </table>
+    </footer>
 </body>
-<script src="js/camara.js"></script>
 </html>

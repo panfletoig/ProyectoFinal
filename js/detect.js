@@ -7,7 +7,7 @@ function iniciar(){
     let oracion = "";    //Las palabras se guardan en una oracion
     let header = [];     //Guarda los diferentes headers
 
-    let idioma = {
+    const idioma = {
         1:"af", 2:"sq", 3:"am", 4:"ar",
         5:"hy", 6:"as", 7:"az", 8:"bn",
         9:"bs", 10:"bg", 11:"yue", 12:"ca",
@@ -46,7 +46,7 @@ function iniciar(){
     
     //colocamos el url y headers
     //let url = {url: "http://imagetranslate.epizy.com/img/"+dUrl};
-    let url = {url: "https://image.slidesharecdn.com/textoeningles-160902150131/95/texto-en-ingles-1-638.jpg"};
+    let url = {url: "https://w.wallpaperkiss.com/wimg/s/158-1589520_small.jpg"};
     
     header[0] = {
     "Ocp-Apim-Subscription-Key":"945a6c1958534f69bdbfe112459fd8b1",
