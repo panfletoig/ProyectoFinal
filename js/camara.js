@@ -42,8 +42,8 @@ const llenarDispositivos = () => {
 }
 (function (){
 	if(!tieneSoporteUserMedia()){
-		alert("Sorry, your browser does not have camera support :(")
-		$estado.innerHTML = "try to update or change browsers :)"
+		alert("Lo sentimos, tu navegador no tiene soporte de camara :(")
+		$estado.innerHTML = "Trata actualizar o cambiar de navegador :)"
 		return;
 	}
 
@@ -103,13 +103,13 @@ const llenarDispositivos = () => {
 					enlase.href = foto;
 					enlase.click();
 
-					console.log(foto);
+					document.getElementById('foto1').value = foto;
 
 					$video.play();
 				})
 			}, (error) =>{
 				console.log("Permiso denegado o error: ",error);
-				$estado.innerHTML = "I don't have permission, can't access your camera :( "
+				$estado.innerHTML = "No tengo permiso, No puedo acceder a la camara :c "
 			}
 		)
 	}

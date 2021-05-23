@@ -43,9 +43,8 @@ function iniciar(){
     parametros[1]="detect?api-version=3.0";
     parametros[2]="translate?api-version=3.0&from=";
     
-    
     //colocamos el url y headers
-    let url = {url: "http://imagetranslate.epizy.com/img/"+dUrl};
+    let url = {url: "http://imagetranslate.epizy.com/img/"+dUrl.slice(7)};
     
     
     header[0] = {

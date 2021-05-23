@@ -1,32 +1,14 @@
 <?php
-    $idiomas=$_REQUEST["idioma"];
-    $nombre=$_FILES['imagen']['name'];
-    $guardado=$_FILES['imagen']['tmp_name'];
-    $size=$_FILES['imagen']['size'];
-    $type=$_FILES['imagen']['type'];
-
-    if($type=='image/jpg' || $type=='image/JPG' || $type=='image/jpeg'){
-        if($size > 5*1024*1024){
-            echo "Error: El archivo es demasiado grande soporto 5MB";
-        }else{
-            if(!file_exists('../img/')){
-                mkdir('../img/',0777,true);
-                if(file_exists('../img/')){
-                    if(move_uploaded_file($guardado, "../img/".$nombre)){
-                        echo "Archivo Guardado con exito";
-                    }else{
-                        echo "Archivo No se guardo :(";
-                    }
-                }
-            }else{
-                if(move_uploaded_file($guardado, "../img/".$nombre)){
-                }
-            }
-        }
-    }else{
-        $error = "Error: Archivo no compatible :(";
-    }
+$idiomas=$_REQUEST["idioma"];
+define('UPLOAD_DIR', '../img/');
+$img = $_POST['foto'];
+$img = str_replace('data:image/png;base64,', '', $img);
+$img = str_replace(' ', '+', $img);
+$data = base64_decode($img);
+$file = UPLOAD_DIR . uniqid() . '.png';
+$success = file_put_contents($file, $data);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -34,8 +16,6 @@
     <meta charset="utf-8">
     <title>Prosesamiento</title>
     <link rel="icon" href="https://images.emojiterra.com/google/android-11/512px/1f9e0.png">
-    <link rel="stylesheet" href="https://imagetranslate.epizy.com/css/fuentes.css">
-    <link rel="stylesheet" href="https://imagetranslate.epizy.com/css/estilo.css">
 </head>
 <body>
     <style>
@@ -109,11 +89,11 @@
         </section>
         <section>
             <script>
-                var dUrl = '<?php echo $nombre;?>';
+                var dUrl = '<?php echo $file;?>';
                 var Nidioma = '<?php echo $idiomas;?>';
             </script>
             <script src="../librerias/axios.min.js"></script>
-            <script src="../js/detect.js"></script>
+            <script src="../js/detect2.js"></script>
             <div id="uno">
             </div>
             <footer>

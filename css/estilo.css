@@ -14,7 +14,7 @@ header {
     text-align: center;
 }
 header h1{
-    background: rgb(12, 14, 44);
+    background: black;
     color: #ededed;
     text-align: center;
     width: 100%;
@@ -22,7 +22,7 @@ header h1{
     padding-bottom: 10px;
 }
 #instru{
-    background-color: black;
+    background-color: rgb(12, 14, 44);
     color: #ededed;
     text-align: center;
     margin-top: 0.5em;
@@ -35,7 +35,7 @@ header h1{
 }
 #video{
     padding-top: 0.5em;
-    width: 75%;
+    width: 50%;
 }
 #upload{
     margin-top: 0.5em;
@@ -45,21 +45,40 @@ form{
     margin-top: 0.5em;
     text-align: center;
 }
-#tabla{
+#tabla, #tabla1{
     margin: 0 auto;
     border-collapse: separate;
     border-spacing: 5vw 0;
+    color: #ededed;
+}
+#creditos{
+    padding-top: 1vw;
+    background-color: rgb(5, 44, 58);
+    padding-bottom: 1vw;
 }
 #tabla a{
     width: 1vw;
+}
+#tabla1{
+    padding-bottom: 1.5vw;
+    background-color: rgb(8, 31, 66);
+    width: 100%;
+}
+#tabla{
+    margin-top: 1vw;
 }
 footer{
     margin-top: 1em;
     text-align: center;
     bottom: 0;
-    padding-top: 1vw;
     padding-bottom: 1vw;
     flex: 1;
     width: 100%;
     background-color: rgb(12, 14, 44);
+}
+#titulos{
+    padding-bottom: 1vw;
+}
+#util{
+    text-align: left;
 }
