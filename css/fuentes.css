@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=KoHo:200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic);
 @import url(https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Fredoka+One:regular);
 
 *{
     font-family: Rubik;
@@ -9,19 +10,37 @@ header h1{
     font-family: "KoHo";
     font-size: 4vw;
 }
-#instru{
-    font-family: Rubik;
+#instru,#creditos{
     font-size: 2.5vw;
 }
 #imagen, #idioma{
-    font-family: Rubik;
     font-size: 1.8vw;
 }
-#creditos{
-    font-family: Rubik;
-    font-size: 2.5vw;
+#subir,#instruccion{
+    font-family: "Fredoka One";
+    font-size: 4vw;
 }
-#tabla1{
-    font-family: Rubik;
-    font-size: 1.8vw;
+
+@media screen and (max-width: 720px) {
+    *{
+        font-family: Rubik;
+        font-size: 4vw;
+    }
+    header h1{
+        font-family: "KoHo";
+        font-size: 8vw;
+    }
+    #instru,#creditos{
+        font-size: 5vw;
+    }
+    #imagen,#idioma{
+        font-size: 3.6vw;
+    }
+    #subir,#instruccion{
+        font-family: "Fredoka One";
+        font-size: 8vw;
+    }
+    #textC li{
+        font-size: 2.5vw;
+    }
 }

@@ -2,7 +2,6 @@
     margin: 0px;
     padding: 0px;
 }
-
 html,body{
     background: #ededed;
     display: flex;
@@ -35,17 +34,39 @@ header h1{
 }
 #video{
     padding-top: 0.5em;
-    width: 65%;
+    width: 60%;
+}
+#boton{
+    max-width: 10%;
+    max-height: 20%;
+}
+#listaDeDispositivos{
+    vertical-align: bottom;
+    max-width: 100%;
+    height: 5.25vw;
 }
 #upload{
-    margin-top: 0.5em;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
     text-align: center;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    color: #ededed;
+    background-color: #033d52;
+}
+#instruccion{
+    margin: 1.5vw 0;
+    text-align: center;
+    background-color: #012c3b;
+    color: #ededed;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
 }
 form{
     margin-top: 0.5em;
     text-align: center;
 }
-#tabla, #tabla1{
+#divfoot, #tabla1{
     margin: 0 auto;
     border-collapse: separate;
     border-spacing: 5vw 0;
@@ -56,15 +77,12 @@ form{
     background-color: rgb(5, 44, 58);
     padding-bottom: 1vw;
 }
-#tabla a{
-    width: 1vw;
-}
 #tabla1{
     padding-bottom: 1.5vw;
     background-color: rgb(8, 31, 66);
     width: 100%;
 }
-#tabla{
+#divfoot{
     margin-top: 1vw;
 }
 footer{
@@ -81,4 +99,20 @@ footer{
 }
 #util{
     text-align: left;
+}
+
+@media screen and (max-width: 720px) {
+    #video{
+        padding-top: 0.5em;
+        width: 100%;
+    }
+    #boton{
+        max-width: 20%;
+        max-height: 20%;
+    }
+    #listaDeDispositivos{
+        vertical-align: bottom;
+        max-width: 100%;
+        height: 10vw;
+    }
 }

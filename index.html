@@ -27,8 +27,14 @@
             <video muted="muted" id="video"></video>
             <canvas id="canvas" style="display: none;"></canvas>
         </section>
+        <section>
+            <p id="instruccion"> 
+                Presiona tomar foto, <br> 
+                luego el idioma y enviala
+            </p>
+        </section>
         <form action="php/img2.php" method="post">
-            Link foto: <input type="text" name="foto" id="foto1">
+            Link foto: <input type="text" name="foto" id="foto1"><br><br>
              Idioma: <select name="idioma" id="idioma">
                 <optgroup label="-Select-">
                     <option value="1">Afrikáans</option> 
@@ -125,9 +131,9 @@
             </select>
             <button>subir la foto</button>
         </form>
-        
+
         <div id="upload">
-            <p>O sube una foto</p>
+            <p id="subir">O sube una foto</p>
         </div>
 
         <form action="php/img.php" method="POST" enctype="multipart/form-data">
@@ -259,29 +265,21 @@
             </tr>
             <tr id="util">
                 <td valign="top">
-                    <ul>
+                    <ul id="textC">
                         <li>Carlos Humberto Interiano Garzona</li> 
                     </ul>
                 </td>
                 <td>
-                    <ul>
-                        <li>Visión: Deteccion texto</li>
+                    <ul id="textC">
+                        <li>Visión: Deteccion texto (OCR)</li>
                         <li>Traduccion: Deteccion</li>
                         <li>Traduccion: Traduccion</li>
                     </ul>
                 </td>
             </tr>
         </table>
-        <table id="tabla">
-            <tr>
-                <td>
-                    <a href="https://www.gogetssl.com" rel="nofollow" title="GoGetSSL Site Seal Logo">
-                    <div id="gogetssl-animated-seal" style="width:20vw; height:58px;"></div>
-                    </a>
-                    <script src="https://gogetssl-cdn.s3.eu-central-1.amazonaws.com/site-seals/gogetssl-seal.js"></script>
-                </td>
-            </tr>
-        </table>
+        <div id="divfoot">
+        </div>
     </footer>
 </body>
 </html>

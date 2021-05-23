@@ -74,6 +74,9 @@ function iniciar(){
             .then(respuesta => {
                 //busca los texts que son las palabras
                 respuesta = respuesta.data.regions[0].lines;
+                if(respuesta == false){
+                    document.getElementById('espera').innerHTML="Lo siento<br>no detecte texto";
+                }
                 respuestaInfo = respuesta.map(item=>{
                     return{
                         words: item.words
@@ -84,7 +87,8 @@ function iniciar(){
                 callback(respuestaInfo);
             })
             .catch(error => {
-                console.log(error)
+                console.log(error);
+                document.getElementById('espera').innerHTML="Lo siento<br>no detecto imagen";
             }
         )
     }
