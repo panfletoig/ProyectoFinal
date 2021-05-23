@@ -44,8 +44,8 @@ function iniciar(){
     parametros[2]="translate?api-version=3.0&from=";
     
     //colocamos el url y headers
-    let url = {url: "http://imagetranslate.epizy.com/img/"+dUrl.slice(7)};
-    
+    let url = {"url": "https://imagetranslate.azurewebsites.net/img"+dUrl.slice(6)};
+    console.log(url);
     
     header[0] = {
     "Ocp-Apim-Subscription-Key":"945a6c1958534f69bdbfe112459fd8b1",
@@ -74,7 +74,6 @@ function iniciar(){
             .then(respuesta => {
                 //busca los texts que son las palabras
                 respuesta = respuesta.data.regions[0].lines;
-    
                 respuestaInfo = respuesta.map(item=>{
                     return{
                         words: item.words

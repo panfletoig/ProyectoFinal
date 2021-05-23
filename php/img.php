@@ -2,27 +2,24 @@
     $idiomas=$_REQUEST["idioma"];
     $nombre=$_FILES['imagen']['name'];
     $guardado=$_FILES['imagen']['tmp_name'];
-    $size=$_FILES['imagen']['size'];
     $type=$_FILES['imagen']['type'];
 
     if($type=='image/jpg' || $type=='image/JPG' || $type=='image/jpeg'){
-        if($size > 5*1024*1024){
-            echo "Error: El archivo es demasiado grande soporto 5MB";
-        }else{
-            if(!file_exists('../img/')){
-                mkdir('../img/',0777,true);
-                if(file_exists('../img/')){
-                    if(move_uploaded_file($guardado, "../img/".$nombre)){
-                        echo "Archivo Guardado con exito";
-                    }else{
-                        echo "Archivo No se guardo :(";
-                    }
-                }
-            }else{
+
+        if(!file_exists('../img/')){
+            mkdir('../img/',0777,true);
+            if(file_exists('../img/')){
                 if(move_uploaded_file($guardado, "../img/".$nombre)){
+                   echo "Archivo Guardado con exito";
+                }else{
+                    echo "Archivo No se guardo :(";
                 }
             }
+        }else{
+            if(move_uploaded_file($guardado, "../img/".$nombre)){
+            }
         }
+        
     }else{
         $error = "Error: Archivo no compatible :(";
     }
@@ -97,7 +94,7 @@
         }
     </style>
     <header>
-        <a href="https://imagetranslate.epizy.com/">
+        <a href="https://imagetranslate.azurewebsites.net/">
             <h1>Image Translate</h1>
         </a>
     </header>
@@ -117,7 +114,7 @@
             <div id="uno">
             </div>
             <footer>
-                <a href="https://imagetranslate.epizy.com/">Regresar al inicio</a>
+                <a href="https://imagetranslate.azurewebsites.net/">Regresar al inicio</a>
             </footer>
         </section>
     </main>

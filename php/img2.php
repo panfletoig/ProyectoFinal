@@ -77,7 +77,7 @@ $success = file_put_contents($file, $data);
         }
     </style>
     <header>
-        <a href="https://imagetranslate.epizy.com/">
+        <a href="https://imagetranslate.azurewebsites.net/">
             <h1>Image Translate</h1>
         </a>
     </header>
@@ -97,7 +97,7 @@ $success = file_put_contents($file, $data);
             <div id="uno">
             </div>
             <footer>
-                <a href="https://imagetranslate.epizy.com/">Regresar al inicio</a>
+                <a href="https://imagetranslate.azurewebsites.net/">Regresar al inicio</a>
             </footer>
         </section>
     </main>

@@ -45,8 +45,7 @@ function iniciar(){
     
     
     //colocamos el url y headers
-    let url = {url: "http://imagetranslate.epizy.com/img/"+dUrl};
-    
+    let url = {"url": "https://imagetranslate.azurewebsites.net/img/"+dUrl};
     
     header[0] = {
     "Ocp-Apim-Subscription-Key":"945a6c1958534f69bdbfe112459fd8b1",
@@ -86,7 +85,7 @@ function iniciar(){
                 callback(respuestaInfo);
             })
             .catch(error => {
-                console.log(error)
+                console.log(error);
             }
         )
     }
@@ -157,7 +156,7 @@ function iniciar(){
             callback(respuesta.data[0].translations[0].text);
         })
         .catch(error => {
-            console.log(error.data);
+            console.log(error);
         })
     }
 }
