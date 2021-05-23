@@ -21,7 +21,7 @@ header h1{
     font-size: 4vw;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 800px) {
     *{
         font-family: Rubik;
         font-size: 4vw;
